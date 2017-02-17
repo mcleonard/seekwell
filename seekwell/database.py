@@ -50,7 +50,7 @@ class Database(object):
             records = db.query('SELECT * FROM users WHERE user_name=:name', name='Fred')
 
         """
-        return Records(self.con.execute(text(statement, **kwargs)))
+        return Records(self.con.execute(text(statement), **kwargs))
 
     def set_schema(self, schema):
         """ If you have schemas (in PostgreSQL for instance), set which schema you're 

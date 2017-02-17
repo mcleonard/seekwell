@@ -1,5 +1,5 @@
 def to_ascii(rows, n=None):
-    from terminaltables import AsciiTable as PrintTable
+    from terminaltables import AsciiTable
     
     if n is None:
         n = rows.max_display_rows
@@ -12,7 +12,7 @@ def to_ascii(rows, n=None):
     if len(table_data) < len(rows):
         table_data.append(['...']*len(table_data[0]))
     
-    asciitable = PrintTable(table_data)
+    asciitable = AsciiTable(table_data)
     asciitable.outer_border = False
 
     return asciitable.table

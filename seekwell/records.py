@@ -125,10 +125,12 @@ class Records(Rows):
             pass
         else:
             # If we haven't fetched up to 'stop' yet, need to get those rows
-            if not self.result.closed and stop > len(self.rows):
+            if stop is None:
+                self.fetch()
+            elif not self.result.closed and stop > len(self.rows):
                 self.fetch(stop-len(self.rows))
 
             new = Rows(self.rows[key], self.headers)
-            return new[key]
+            return new
 
         return super().__getitem__(key)
