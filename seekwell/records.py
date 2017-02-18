@@ -1,3 +1,4 @@
+from __future__ import print_function
 from .export import to_html, to_ascii, to_pandas, to_csv
 from numbers import Number
 
@@ -21,7 +22,7 @@ class Rows(object):
         return to_pandas(self)
 
     def to_csv(self, filename, **kwargs):
-        """ Write the rows out to a CSV file. 
+        """ Write the rows out to a CSV file.
 
             For the keyword arguments that let you set the delimiter, etc. :
             https://docs.python.org/3/library/csv.html#csv-fmt-params
@@ -34,7 +35,7 @@ class Rows(object):
         """ Return the first n rows """
         return self[:n]
 
-    def print(self, n=None):
+    def print_rows(self, n=None):
         """ Print out the rows as an ASCII table """
         print(self.to_ascii(n=n))
 
@@ -85,14 +86,14 @@ class Rows(object):
 
 
 class Records(Rows):
-    
+
     def __init__(self, result_object, rows=None):
 
         self.result = result_object
         self.column_names = self.result.keys()
-        super().__init__(rows=[] if rows is None else rows, 
+        super(Records, self).__init__(rows=[] if rows is None else rows,
                          headers=self.column_names)
-        
+
     def __iter__(self):
         # If we've already got the results, iterate from cache
         if self.result.closed:
@@ -107,7 +108,7 @@ class Records(Rows):
             else:
                 # Close results after getting all the data
                 self.result.close()
-    
+
     def fetch(self, n=None):
         """  """
         if n is None:
@@ -117,7 +118,7 @@ class Records(Rows):
         return self
 
     def __getitem__(self, key):
-        
+
         # First try slicing
         try:
             stop = key.stop
