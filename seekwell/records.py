@@ -35,7 +35,7 @@ class Rows(object):
         """ Return the first n rows """
         return self[:n]
 
-    def print_rows(self, n=None):
+    def print(self, n=None):
         """ Print out the rows as an ASCII table """
         print(self.to_ascii(n=n))
 
