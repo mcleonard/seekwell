@@ -42,7 +42,9 @@ SeekWell depends on SQLAlchemy and terminaltables. You'll need Pandas if you wan
 
 ## Installation
 
-Coming soon!
+```
+pip install seekwell
+```
 
 ## The Future
 

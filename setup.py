@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+from setuptools import setup
 
 setup(name='SeekWell',
       version='0.1',
@@ -10,7 +10,7 @@ setup(name='SeekWell',
       url='https://github.com/mcleonard/seekwell',
       packages=['seekwell'],
       license='LICENSE.txt',
-      install_requires=[
+      requires=[
           'sqlalchemy',
           'terminaltables'
       ]
