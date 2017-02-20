@@ -1,6 +1,8 @@
 
 # SeekWell
 
+[![Build Status](https://travis-ci.org/mjhea0/seekwell.svg?branch=master)](https://travis-ci.org/mjhea0/seekwell)
+
 SeekWell is a Python package built for data analysts who want an easier way to get data from SQL databases. SeekWell is built on top of SQLAlchemy, so it can connect to pretty much any database. Using it is straightforward, as you can see in [this walkthrough I recorded](https://www.youtube.com/watch?v=FKANqEBTaOc).
 
 ## Usage
